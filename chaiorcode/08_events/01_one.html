@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML events</title>
+</head>
+
+<body style="background-color: #414141; color:aliceblue ;">
+    <h2>Amazinng images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+    <script>
+
+        //attachEvent
+        //jQuery--on
+
+
+        //PADHNA HAI KHUD SE
+
+        //type, timestamp, defaultPrevented
+        //target, toElement, srcElement , currrentTarget
+        //clientX, clientY, screenX, screenY
+        //altKey, ctrlKey, shiftkey, keycode
+
+
+
+        // document.getElementById('owl').onclick=function(){
+        //     alert("owl clicked")
+        // }
+
+        // or 
+
+        // document.getElementById('owl').addEventListener('click',function(e){
+        //     // console.log(e)
+        //     alert('owl clicked again')
+        //      e.stopPropagation();//By applying this it only works what i click or what i want , and it will not to go beyond this
+        // },false)
+
+        //Event propagation :- it is of two types
+        //1>Event bubbling 
+        //2>Event capturing
+
+
+        //  document.getElementById('images').addEventListener('click',function(e){
+        //     alert(' clicked inside the ul')
+        // },false)
+
+
+
+        //This prevents from going from one page to another and here we are applying or applied the preventDefault method and the working of this is not to go on another oage
+
+        // document.getElementById('google').addEventListener('click',function(e){
+        //     console.log("google clicked")
+        //     e.preventDefault()
+        // })
+
+
+
+
+
+
+        //real world scenerio:----> scenerio is on clicking on photo it shoud must be deleted after that
+        document.querySelector('#images').addEventListener('click', function (e) {
+            // console.log(e);//it shows in which area we are clicking
+            console.log(e.target);// it shows at which thing i am clicking
+            console.log(e.target.parentNode);
+
+            if (e.target.tagName === 'IMG')//by applying this only photo will be deleted from whole area
+            {
+                let removeIt = e.target.parentNode
+                removeIt.remove()
+            }
+            // or 
+
+            // removeIt.parentNode.removeChild(removeIt);// this is not good
+        }, false)
+
+    </script>
+</body>
+
+</html>

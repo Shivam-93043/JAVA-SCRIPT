@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async projects</title>
+</head>
+<body>
+    <h1>chai or code</h1>
+    <button id="stop">Stop</button>
+
+</body>
+
+<script>
+    // setTimeout(function(){//setTimeout  is used for doing work by taking gap and in this gap other will be done
+    //     console.log("Shivam")
+    // },2000)
+
+    const sayShivam= function(){
+        console.log("Shivam")
+    }
+
+    
+    const changeText= function(){
+        document.querySelector('h1').innerHTML="best java script course"
+    }
+    const changeMe=setTimeout(changeText, 2000)
+
+   document.querySelector('#stop').addEventListener('click',function(){
+    clearTimeout(changeMe);
+    console.log("Stopped")
+   })
+
+// setInterval is used for also taking time but it works continuously just as synchronous
+
+</script>
+</html>
